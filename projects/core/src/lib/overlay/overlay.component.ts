@@ -48,6 +48,7 @@ export class FivOverlay {
 
   hide() {
     if (this.componentRef) {
+      this.overlay.distroyOverlay(this.componentRef);
       this.componentRef.destroy();
       this.componentRef = null;
       this._open = false;

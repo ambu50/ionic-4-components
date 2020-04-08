@@ -65,4 +65,11 @@ export class FivOverlayService {
     const componentRef = factory.create(this.injector);
     return [[componentRef.location.nativeElement]];
   }
+
+  distroyOverlay<T>(componentRef :ComponentRef<T>){
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
+      .rootNodes[0] as HTMLElement;
+    document.body.removeChild(domElem);
+  }
+
 }
